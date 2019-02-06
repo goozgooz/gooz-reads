@@ -8,7 +8,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 class MobileNav extends Component {
   state = {
-    showSearch: false,
+    showSearch: true,
   }
 
   onSearchClick = () => {
