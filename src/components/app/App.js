@@ -1,6 +1,6 @@
 import './_app.scss';
 import React, { Component } from 'react';
-import Navbar from '../navbar/mobile';
+import Navbar from '../navbar/Mobile';
 
 class App extends Component {
 
