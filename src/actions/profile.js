@@ -1,11 +1,11 @@
 import * as ProfileAction from '../action-types/profile';
 
-export const FETCH_PROFILE = () => (store) => {
+export const fetchProfile = () => (store) => {
   console.log('inside profile action...');
-  return store.dispatch(fetchProfile({name: 'ashkaan'}));
+  return store.dispatch(fetch({name: 'ashkaan'}));
 };
 
-const fetchProfile = (profile) => ({
+const fetch = (profile) => ({
   type: ProfileAction.FETCH_PROFILE,
   payload: profile,
 });

@@ -14,7 +14,9 @@ class MobileNav extends Component {
   onSearchClick = () => {
     this.setState({showSearch: !this.state.showSearch});
   }
-
+  componentDidMount(){
+    this.props.fetchProfile();
+  }
   render(){
     return (
       <div className='mobile-nav'>
