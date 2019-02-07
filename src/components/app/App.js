@@ -8,13 +8,17 @@ import * as ProfileActions from '../../actions/profile';
 import Navbar from '../navbar/Mobile.js';
 
 class App extends Component {
+  componentWillMount(){
+    const fetchProfile = bindActionCreators(ProfileActions.fetchProfile, this.props.dispatch);
+    fetchProfile();
+  }
   render() {
-    const {dispatch, profile} = this.props;
-    const fetchProfile = bindActionCreators(ProfileActions.fetchProfile, dispatch);
-    console.log({profile})
+    const {profile} = this.props;
     return (
       <div className="App">
-        <Navbar fetchProfile={fetchProfile}/>
+        <Navbar 
+          profile={profile}
+        />
       </div>
     );
   }
