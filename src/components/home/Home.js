@@ -1,3 +1,5 @@
+/* global localStorage */
+
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -16,13 +18,15 @@ class Home extends Component {
   
   render() {
     const {profile} = this.props;
-
     return (
       <React.Fragment>
-        <Navbar 
-          profile={profile}
-        />
-        <div onClick={this.showLogIn}> Log In </div>
+        {localStorage.accessToken ? 
+          <Navbar 
+            profile={profile}
+          />
+            :
+          <div onClick={this.showLogIn}> Log In </div>
+        }
       </React.Fragment>
         
     );

@@ -1,3 +1,5 @@
+/* global localStorage */
+
 import './_app.scss';
 import React, { Component } from 'react';
 import Auth0Lock from 'auth0-lock';
@@ -5,10 +7,6 @@ import Home from '../home/Home';
 
 
 class App extends Component {
-  state = {
-    idToken: null,
-  }
-  
   componentWillMount(){
     this.lock = new Auth0Lock(process.env.REACT_APP_CLIENT_ID, process.env.REACT_APP_AUTH0_DOMAIN);
     this.lock.on("authenticated", function(authResult) {
@@ -20,8 +18,6 @@ class App extends Component {
      
         localStorage.setItem("accessToken", authResult.accessToken);
         localStorage.setItem("profile", JSON.stringify(profile));
-     
-        // Update DOM
       });
     });
   };
@@ -30,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Home lock={this.lock} idToken={this.idToken} />
+        <Home lock={this.lock} />
       </div>
     );
   }
