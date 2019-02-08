@@ -16,7 +16,6 @@ class MobileNav extends Component {
   }
 
   render(){
-    console.log(this.props.profile);
     return (
       <div className='mobile-nav'>
       

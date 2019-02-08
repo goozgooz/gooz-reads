@@ -16,6 +16,7 @@ class Home extends Component {
   
   render() {
     const {profile} = this.props;
+
     return (
       <React.Fragment>
         <Navbar 
