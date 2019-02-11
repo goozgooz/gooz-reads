@@ -1,3 +1,5 @@
+/* global localStorage */
+
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -5,7 +7,7 @@ import * as ProfileActions from '../../actions/profile';
 import Navbar from '../navbar/Mobile';
 
 class Home extends Component {
-  componentWillMount(){
+  componentWillMount() {
     const fetchProfile = bindActionCreators(ProfileActions.fetchProfile, this.props.dispatch);
     fetchProfile();
   }
@@ -13,9 +15,9 @@ class Home extends Component {
   render() {
     const {profile} = this.props;
     return (
-        <Navbar 
-          profile={profile}
-        />
+      <React.Fragment>
+        <Navbar profile = {profile} />
+      </React.Fragment>
     );
   }
 }
