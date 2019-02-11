@@ -12,23 +12,12 @@ class Home extends Component {
     fetchProfile();
   }
   
-  showLogIn = () => {
-    this.props.lock.show();
-  }
-  
   render() {
     const {profile} = this.props;
     return (
       <React.Fragment>
-        {localStorage.accessToken ? 
-          <Navbar 
-            profile={profile}
-          />
-            :
-          <div onClick={this.showLogIn}> Log In </div>
-        }
+        <Navbar profile = {profile} />
       </React.Fragment>
-        
     );
   }
 }
