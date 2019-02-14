@@ -2,7 +2,7 @@
 import './_app.scss';
 import React, { Component } from 'react';
 import Home from '../home/Home';
-import Lock from '../auth/Auth.js';
+import LogIn from '../auth/Auth.js';
 
 
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
         {authenticated ? 
           <Home  />
         :
-          <Lock addToken={this.addToken}/>
+          <LogIn addToken={this.addToken}/>
         }
       </div>
     );

@@ -1,24 +1,17 @@
 /* global localStorage */
 import React from 'react';
-import Auth0Lock from 'auth0-lock';
+import goodreads from 'goodreads-api-node';
 
-const Lock = ({addToken}) => {
-  const lock = new Auth0Lock(process.env.REACT_APP_CLIENT_ID, process.env.REACT_APP_AUTH0_DOMAIN);
-  lock.on("authenticated", (authResult) => {
-    lock.getUserInfo(authResult.accessToken, function(error, profile) {
-      if (error) {
-        console.log(error);
-        return;
-      }
-   
-      localStorage.setItem("accessToken", authResult.accessToken);
-      localStorage.setItem("profile", JSON.stringify(profile));
-      addToken(authResult.accessToken);
-    });
-  });
+const LogIn = ({addToken}) => {
+  const credentials = {
+    key: process.env.REACT_APP_GOODREADS_KEY,
+    secret: process.env.REACT_APP_GOODREADS_SECRET
+  }
   
+  const gr = goodreads(credentials);
+  gr.initOAuth('https://gooz-reads-goozgooz.c9users.io/')
   const showLogIn = () => {
-    lock.show();
+    console.log(gr);
   }
   
   return (
@@ -26,4 +19,4 @@ const Lock = ({addToken}) => {
   )
 };
 
-export default Lock;
+export default LogIn;
