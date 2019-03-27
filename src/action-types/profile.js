@@ -1,1 +1,0 @@
-export const FETCH_PROFILE = 'profile/FETCH_PROFILE';
